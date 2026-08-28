@@ -1,10 +1,19 @@
 import type { Metadata } from 'next';
 import ContactForm from '@/components/ContactForm';
+import {
+  BUSINESS_ADDRESS_FULL,
+  BUSINESS_EMAIL,
+  BUSINESS_HOURS,
+  BUSINESS_MAPS_EMBED_SRC,
+  BUSINESS_NAME,
+  BUSINESS_PHONE,
+  BUSINESS_PHONE_TEL,
+} from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Get in touch with Colour Craft Studio in Hermanus. Book a colour consultation or ask us anything about our paint products and services.',
+    'Get in touch with Colour Craft Studio in Sandbaai, Hermanus. Book a colour consultation or ask us anything about our paint products and services.',
 };
 
 export default function ContactPage() {
@@ -22,20 +31,13 @@ export default function ContactPage() {
 
       <section className="pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Form */}
-          <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Send Us a Message</h2>
-            <ContactForm />
-          </div>
-
           {/* Business info */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Visit Us</h2>
-              <address className="not-italic text-gray-600 space-y-2 text-sm leading-relaxed">
-                <p className="font-medium text-gray-900">Colour Craft Studio</p>
-                <p>Hermanus, Western Cape</p>
-                <p>South Africa, 7200</p>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Visit Us</h2>
+              <address className="not-italic text-gray-600 text-base leading-relaxed">
+                <p className="font-medium text-gray-900">{BUSINESS_NAME}</p>
+                <p>{BUSINESS_ADDRESS_FULL}</p>
               </address>
             </div>
 
@@ -45,16 +47,16 @@ export default function ContactPage() {
                 <div className="flex gap-2">
                   <dt className="font-medium text-gray-800 w-16">Phone</dt>
                   <dd>
-                    <a href="tel:+27280000000" className="text-blue-600 hover:underline">
-                      +27 (0)28 000 0000
+                    <a href={`tel:${BUSINESS_PHONE_TEL}`} className="text-blue-600 hover:underline">
+                      {BUSINESS_PHONE}
                     </a>
                   </dd>
                 </div>
                 <div className="flex gap-2">
                   <dt className="font-medium text-gray-800 w-16">Email</dt>
                   <dd>
-                    <a href="mailto:info@colourcraftstudio.co.za" className="text-blue-600 hover:underline">
-                      info@colourcraftstudio.co.za
+                    <a href={`mailto:${BUSINESS_EMAIL}`} className="text-blue-600 hover:underline">
+                      {BUSINESS_EMAIL}
                     </a>
                   </dd>
                 </div>
@@ -63,29 +65,25 @@ export default function ContactPage() {
 
             <div>
               <h3 className="text-base font-semibold text-gray-900 mb-3">Trading Hours</h3>
-              <dl className="space-y-1 text-sm text-gray-600">
-                <div className="flex justify-between max-w-xs">
-                  <dt>Monday – Friday</dt>
-                  <dd className="font-medium">8:00 – 17:00</dd>
-                </div>
-                <div className="flex justify-between max-w-xs">
-                  <dt>Saturday</dt>
-                  <dd className="font-medium">9:00 – 13:00</dd>
-                </div>
-                <div className="flex justify-between max-w-xs">
-                  <dt>Sunday & Public Holidays</dt>
-                  <dd className="font-medium">Closed</dd>
-                </div>
-              </dl>
+              <table className="w-full max-w-xs text-sm text-gray-600">
+                <tbody>
+                  {BUSINESS_HOURS.map(({ day, hours }) => (
+                    <tr key={day} className="border-b border-gray-100 last:border-0">
+                      <td className="py-1.5 pr-4 text-gray-800">{day}</td>
+                      <td className="py-1.5 text-right font-medium">{hours}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
-            {/* Map embed placeholder */}
+            {/* Map embed */}
             <div>
               <h3 className="text-base font-semibold text-gray-900 mb-3">Location</h3>
               <div className="rounded-2xl overflow-hidden border border-gray-200 h-56">
                 <iframe
-                  title="Colour Craft Studio location — Hermanus, Western Cape"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26470.01!2d19.2166!3d-34.4187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcdfe8fb5b5d4a1%3A0x2b0f5a0b2b2b2b2b!2sHermanus%2C%20Western%20Cape!5e0!3m2!1sen!2sza!4v1699999999999"
+                  title="Colour Craft Studio location — Sandbaai, Hermanus"
+                  src={BUSINESS_MAPS_EMBED_SRC}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -95,6 +93,12 @@ export default function ContactPage() {
                 />
               </div>
             </div>
+          </div>
+
+          {/* Form */}
+          <div>
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">Send Us a Message</h2>
+            <ContactForm />
           </div>
         </div>
       </section>

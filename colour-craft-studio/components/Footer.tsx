@@ -1,4 +1,15 @@
 import Link from 'next/link';
+import {
+  BUSINESS_ADDRESS_FULL,
+  BUSINESS_EMAIL,
+  BUSINESS_PHONE,
+  BUSINESS_PHONE_TEL,
+} from '@/lib/constants';
+
+const SOCIAL_LINKS = [
+  { href: 'https://facebook.com/colourcraftstudio', label: 'Facebook' },
+  { href: 'https://instagram.com/colourcraftstudio', label: 'Instagram' },
+];
 
 export default function Footer() {
   return (
@@ -36,19 +47,36 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Contact</h3>
           <address className="not-italic space-y-2 text-sm text-gray-400">
-            <p>Hermanus, Western Cape</p>
-            <p>South Africa</p>
+            <p>{BUSINESS_ADDRESS_FULL}</p>
             <p>
-              <a href="tel:+27280000000" className="hover:text-white transition-colors">
-                +27 (0)28 000 0000
+              <a href={`tel:${BUSINESS_PHONE_TEL}`} className="hover:text-white transition-colors">
+                {BUSINESS_PHONE}
               </a>
             </p>
             <p>
-              <a href="mailto:info@colourcraftstudio.co.za" className="hover:text-white transition-colors">
-                info@colourcraftstudio.co.za
+              <a href={`mailto:${BUSINESS_EMAIL}`} className="hover:text-white transition-colors">
+                {BUSINESS_EMAIL}
               </a>
             </p>
-            <p className="pt-1">Mon–Fri: 8:00 – 17:00<br />Sat: 9:00 – 13:00</p>
+            <p className="pt-1">
+              Mon–Thu: 7:00 AM – 4:30 PM<br />
+              Fri: 7:00 AM – 3:00 PM<br />
+              Sat: 7:30 AM – 12:00 PM<br />
+              Sun: Closed
+            </p>
+            <div className="flex gap-4 pt-2">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </address>
         </div>
       </div>

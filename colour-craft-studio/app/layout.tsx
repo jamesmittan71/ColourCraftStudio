@@ -1,6 +1,13 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import {
+  BUSINESS_EMAIL,
+  BUSINESS_GEO,
+  BUSINESS_NAME,
+  BUSINESS_OPENING_HOURS_SPECIFICATION,
+  BUSINESS_PHONE_TEL,
+} from '@/lib/constants';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -18,6 +25,33 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: BUSINESS_NAME,
+  email: BUSINESS_EMAIL,
+  telephone: BUSINESS_PHONE_TEL,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Unit 1&2, 98 Bergsig St',
+    addressLocality: 'Sandbaai',
+    postalCode: '7200',
+    addressRegion: 'Western Cape',
+    addressCountry: 'ZA',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: BUSINESS_GEO.latitude,
+    longitude: BUSINESS_GEO.longitude,
+  },
+  openingHoursSpecification: BUSINESS_OPENING_HOURS_SPECIFICATION.map((spec) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: spec.dayOfWeek,
+    opens: spec.opens,
+    closes: spec.closes,
+  })),
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -29,6 +63,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
       <body className="bg-white text-gray-900 antialiased">
