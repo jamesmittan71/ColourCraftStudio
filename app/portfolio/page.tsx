@@ -30,6 +30,7 @@ export default async function PortfolioPage({ searchParams }: PageProps) {
         eyebrow="Project gallery"
         title="Before-and-after inspired visuals, organised for quick specification reviews."
         description="A minimalist gallery structure with lazy-loaded images and room-type filtering to support design conversations and client approvals."
+        as="h1"
       />
       <form className="mt-8 flex flex-wrap items-center gap-4 rounded-[1.5rem] border border-[var(--border)] bg-white/75 p-4 backdrop-blur">
         <label htmlFor="room" className="text-sm font-medium text-[var(--muted)]">

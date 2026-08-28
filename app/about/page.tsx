@@ -14,6 +14,7 @@ export default function AboutPage() {
         eyebrow="About us"
         title="Colour Craft Studio brings boutique paint knowledge to the Hermanus coast."
         description="We’re built for clients who want elegant finishes, calm decision-making, and practical answers about products, colours, and coastal durability."
+        as="h1"
       />
       <div className="mt-10 space-y-8 rounded-[2rem] border border-[var(--border)] bg-white p-8 text-base leading-8 text-[var(--muted)] shadow-[0_10px_30px_rgba(22,22,22,0.04)]">
         <p>

@@ -1,16 +1,47 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { AdminLoginForm } from "@/components/admin-login-form";
 import { AdminPortfolioForm } from "@/components/admin-portfolio-form";
 import { AdminProductForm } from "@/components/admin-product-form";
 import { SectionHeading } from "@/components/section-heading";
+import {
+  adminSessionCookieName,
+  getConfiguredAdminSecret,
+  hasValidAdminSessionCookie,
+} from "@/lib/admin";
 import { getPortfolio, getProducts, getSubmissions } from "@/lib/runtime-data";
 
 export const metadata: Metadata = {
   title: "Admin",
   description:
     "Internal dashboard for managing catalogue content, portfolio entries, and inbound enquiries for Colour Craft Studio.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function AdminPage() {
+  const configuredSecret = getConfiguredAdminSecret();
+  const cookieStore = await cookies();
+  const hasSession = hasValidAdminSessionCookie(
+    cookieStore.get(adminSessionCookieName)?.value,
+  );
+
+  if (!configuredSecret || !hasSession) {
+    return (
+      <div className="mx-auto w-full max-w-3xl px-6 py-16 lg:px-10">
+        <SectionHeading
+          eyebrow="Admin dashboard"
+          title="Protected studio access"
+          description="Sign in with the configured admin key to manage products, gallery entries, and booking inbox data."
+          as="h1"
+        />
+        <AdminLoginForm hasConfiguredSecret={Boolean(configuredSecret)} />
+      </div>
+    );
+  }
+
   const [products, portfolio, submissions] = await Promise.all([
     getProducts(),
     getPortfolio(),
@@ -23,6 +54,7 @@ export default async function AdminPage() {
         eyebrow="Admin dashboard"
         title="A lightweight content and booking management layer."
         description="Use the forms below to add or update catalogue products and portfolio entries. Existing enquiries and bookings are listed for quick follow-up."
+        as="h1"
       />
 
       <div className="mt-8 grid gap-5 md:grid-cols-3">

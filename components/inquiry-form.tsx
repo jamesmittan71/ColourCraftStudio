@@ -28,22 +28,27 @@ export function InquiryForm({
     setSubmitting(true);
     setStatus("");
 
-    const payload = Object.fromEntries(formData.entries());
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    try {
+      const payload = Object.fromEntries(formData.entries());
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    const result = await response.json();
-    setStatus(result.message ?? "Submission received.");
-    setSubmitting(false);
+      const result = await response.json();
+      setStatus(result.message ?? "Submission received.");
 
-    if (response.ok) {
-      const form = document.getElementById(
-        `${title.replaceAll(" ", "-").toLowerCase()}-form`,
-      ) as HTMLFormElement | null;
-      form?.reset();
+      if (response.ok) {
+        const form = document.getElementById(
+          `${title.replaceAll(" ", "-").toLowerCase()}-form`,
+        ) as HTMLFormElement | null;
+        form?.reset();
+      }
+    } catch {
+      setStatus("Unable to submit right now. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
   }
 

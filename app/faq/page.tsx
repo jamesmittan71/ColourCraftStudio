@@ -15,6 +15,7 @@ export default function FaqPage() {
         eyebrow="Frequently asked questions"
         title="Clear answers, without the usual paint-industry clutter."
         description="Everything from colour consultations to delivery logistics and premium brand comparisons."
+        as="h1"
       />
       <div className="mt-10 space-y-4">
         {faqs.map((faq) => (

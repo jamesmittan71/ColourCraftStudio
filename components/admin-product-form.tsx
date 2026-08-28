@@ -6,33 +6,37 @@ export function AdminProductForm() {
   const [status, setStatus] = useState("");
 
   async function handleSubmit(formData: FormData) {
-    const payload = {
-      slug: formData.get("slug"),
-      brand: formData.get("brand"),
-      brandSlug: formData.get("brandSlug"),
-      name: formData.get("name"),
-      line: formData.get("line"),
-      paintType: formData.get("paintType"),
-      finish: formData.get("finish"),
-      description: formData.get("description"),
-      priceFrom: formData.get("priceFrom"),
-      sortPrice: Number(formData.get("sortPrice")),
-      stockStatus: formData.get("stockStatus"),
-      swatch: formData.get("swatch"),
-      sourceUrl: formData.get("sourceUrl"),
-      features: String(formData.get("features") ?? "")
-        .split(",")
-        .map((feature) => feature.trim())
-        .filter(Boolean),
-    };
+    try {
+      const payload = {
+        slug: formData.get("slug"),
+        brand: formData.get("brand"),
+        brandSlug: formData.get("brandSlug"),
+        name: formData.get("name"),
+        line: formData.get("line"),
+        paintType: formData.get("paintType"),
+        finish: formData.get("finish"),
+        description: formData.get("description"),
+        priceFrom: formData.get("priceFrom"),
+        sortPrice: Number(formData.get("sortPrice")),
+        stockStatus: formData.get("stockStatus"),
+        swatch: formData.get("swatch"),
+        sourceUrl: formData.get("sourceUrl"),
+        features: String(formData.get("features") ?? "")
+          .split(",")
+          .map((feature) => feature.trim())
+          .filter(Boolean),
+      };
 
-    const response = await fetch("/api/admin/products", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    const result = await response.json();
-    setStatus(result.message ?? "Saved.");
+      const response = await fetch("/api/admin/products", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      setStatus(result.message ?? "Saved.");
+    } catch {
+      setStatus("Unable to save product right now. Please try again.");
+    }
   }
 
   return (

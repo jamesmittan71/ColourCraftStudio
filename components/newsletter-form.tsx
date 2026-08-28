@@ -9,14 +9,19 @@ export function NewsletterForm() {
   async function handleSubmit(formData: FormData) {
     setSubmitting(true);
     setStatus("");
-    const response = await fetch("/api/newsletter", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: formData.get("email") }),
-    });
-    const result = await response.json();
-    setStatus(result.message ?? "Subscribed.");
-    setSubmitting(false);
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: formData.get("email") }),
+      });
+      const result = await response.json();
+      setStatus(result.message ?? "Subscribed.");
+    } catch {
+      setStatus("Unable to subscribe right now. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (

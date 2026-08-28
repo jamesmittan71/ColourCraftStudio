@@ -6,26 +6,30 @@ export function AdminPortfolioForm() {
   const [status, setStatus] = useState("");
 
   async function handleSubmit(formData: FormData) {
-    const payload = {
-      slug: formData.get("slug"),
-      title: formData.get("title"),
-      roomType: formData.get("roomType"),
-      description: formData.get("description"),
-      image: formData.get("image"),
-      imageAlt: formData.get("imageAlt"),
-      coloursUsed: String(formData.get("coloursUsed") ?? "")
-        .split(",")
-        .map((colour) => colour.trim())
-        .filter(Boolean),
-    };
+    try {
+      const payload = {
+        slug: formData.get("slug"),
+        title: formData.get("title"),
+        roomType: formData.get("roomType"),
+        description: formData.get("description"),
+        image: formData.get("image"),
+        imageAlt: formData.get("imageAlt"),
+        coloursUsed: String(formData.get("coloursUsed") ?? "")
+          .split(",")
+          .map((colour) => colour.trim())
+          .filter(Boolean),
+      };
 
-    const response = await fetch("/api/admin/portfolio", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    const result = await response.json();
-    setStatus(result.message ?? "Saved.");
+      const response = await fetch("/api/admin/portfolio", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      setStatus(result.message ?? "Saved.");
+    } catch {
+      setStatus("Unable to save portfolio entry right now. Please try again.");
+    }
   }
 
   return (

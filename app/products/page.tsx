@@ -46,6 +46,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
         eyebrow="Product catalogue"
         title="Specification-led paint choices with elegant filtering."
         description="A curated, sync-ready catalogue structure for luxury residential interiors, coastal exteriors, decorative finishes, and low-VOC projects."
+        as="h1"
       />
 
       <form className="mt-8 grid gap-4 rounded-[1.75rem] border border-[var(--border)] bg-white/75 p-5 backdrop-blur md:grid-cols-4">

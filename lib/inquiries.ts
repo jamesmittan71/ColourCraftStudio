@@ -3,7 +3,22 @@ import { postWebhookJson, writeRuntimeFile } from "@/lib/storage";
 import { type Submission } from "@/lib/site-data";
 
 function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!email || email.includes(" ")) {
+    return false;
+  }
+
+  const parts = email.split("@");
+  if (parts.length !== 2) {
+    return false;
+  }
+
+  const [localPart, domain] = parts;
+  if (!localPart || !domain || domain.startsWith(".") || domain.endsWith(".")) {
+    return false;
+  }
+
+  const domainParts = domain.split(".");
+  return domainParts.length >= 2 && domainParts.every((part) => part.length > 0);
 }
 
 type SubmissionInput = Omit<Submission, "id" | "createdAt">;

@@ -10,7 +10,6 @@ const routes = [
   "/faq",
   "/contact",
   "/resources",
-  "/admin",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -24,6 +24,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
         eyebrow="Contact"
         title="Let’s plan your next finish with clarity."
         description="Use the enquiry form for quotes and product guidance, or book a dedicated colour consultation with a preferred appointment window."
+        as="h1"
       />
       <div className="mt-10 grid gap-8 xl:grid-cols-[0.9fr_1.1fr]">
         <aside className="space-y-6 rounded-[2rem] border border-[var(--border)] bg-white p-8 shadow-[0_10px_30px_rgba(22,22,22,0.04)]">

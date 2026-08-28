@@ -33,6 +33,7 @@ export default async function BrandsPage({ searchParams }: PageProps) {
         eyebrow="Paint suppliers"
         title="Brand portfolios chosen for finish quality and project confidence."
         description="Use the paint-type filter to narrow the supplier mix for interiors, exteriors, specialist coatings, and low-VOC projects."
+        as="h1"
       />
 
       <form className="mt-8 flex flex-wrap items-center gap-4 rounded-[1.5rem] border border-[var(--border)] bg-white/70 p-4 backdrop-blur">

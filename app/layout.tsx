@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -74,7 +75,7 @@ const localBusinessSchema = {
   ],
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en-ZA" className="h-full scroll-smooth antialiased">
       <body className="min-h-full bg-[var(--background)] text-[var(--foreground)]">

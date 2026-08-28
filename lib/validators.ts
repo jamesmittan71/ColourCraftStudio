@@ -23,7 +23,7 @@ export function validateAdminProduct(input: Record<string, unknown>): Product {
     stockStatus: requiredString(input.stockStatus, "Stock status"),
     swatch: requiredString(input.swatch, "Swatch"),
     sourceUrl: requiredString(input.sourceUrl, "Source URL"),
-    newestRank: 0,
+    newestRank: Number(input.newestRank ?? 0) || 0,
     features: Array.isArray(input.features)
       ? input.features.map((item) => String(item))
       : [requiredString(input.features, "Features")],

@@ -24,7 +24,6 @@ export function SiteFooter() {
           <NewsletterForm />
           <div className="flex flex-wrap gap-4 text-sm font-medium text-[var(--muted)]">
             <Link href="/resources">Resources</Link>
-            <Link href="/admin">Admin</Link>
             <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
               Instagram
             </a>

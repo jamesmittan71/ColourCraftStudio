@@ -54,13 +54,13 @@ If set, the API routes will POST the submitted JSON payloads to those endpoints.
 
 Seed data lives in:
 
-- `/home/runner/work/ColourCraftStudio/ColourCraftStudio/data/brands.json`
-- `/home/runner/work/ColourCraftStudio/ColourCraftStudio/data/products.json`
-- `/home/runner/work/ColourCraftStudio/ColourCraftStudio/data/portfolio.json`
-- `/home/runner/work/ColourCraftStudio/ColourCraftStudio/data/faqs.json`
-- `/home/runner/work/ColourCraftStudio/ColourCraftStudio/data/resources.json`
+- `data/brands.json`
+- `data/products.json`
+- `data/portfolio.json`
+- `data/faqs.json`
+- `data/resources.json`
 
-The admin page can add or update runtime catalogue and portfolio entries. Runtime edits are stored under `data/runtime/` and are intentionally git-ignored.
+The admin page can add or update runtime catalogue and portfolio entries. Protect it with `ADMIN_SECRET`, then sign in at `/admin` to create a secure admin session. Runtime edits are stored under `data/runtime/` and are intentionally git-ignored.
 
 ## Booking confirmations and reminders
 

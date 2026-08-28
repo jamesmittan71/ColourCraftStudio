@@ -16,6 +16,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Project support that keeps good design decisions practical."
         description="From a one-room refresh to a multi-phase coastal build, we help clients choose the right palette, coating system, and delivery plan."
+        as="h1"
       />
       <div className="mt-10 grid gap-5 lg:grid-cols-2">
         {services.map((service) => (

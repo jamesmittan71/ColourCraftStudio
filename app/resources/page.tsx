@@ -15,6 +15,7 @@ export default function ResourcesPage() {
         eyebrow="Resources"
         title="Editorial content for search visibility and better client decisions."
         description="A lightweight resources hub for future blog growth, SEO, and client education."
+        as="h1"
       />
       <div className="mt-10 grid gap-5 lg:grid-cols-3">
         {resources.map((resource) => (
