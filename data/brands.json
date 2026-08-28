@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "midas-paint",
+    "name": "MIDAS Paint",
+    "logoText": "MIDAS PAINT",
+    "description": "A practical South African coatings partner with decorative and project-ready paint systems suited to residential maintenance and contractor supply.",
+    "website": "https://www.midaspaint.co.za/",
+    "sourceUrl": "https://www.midaspaint.co.za/",
+    "lastSyncedAt": "2026-08-28T00:00:00.000Z",
+    "paintTypes": ["Interior", "Exterior", "Specialty"],
+    "categories": ["Wall coatings", "Roof paints", "Primers"],
+    "productLines": ["Premium Acrylic", "Roofshield", "Trade Essentials"]
+  },
+  {
+    "slug": "plascon",
+    "name": "Plascon",
+    "logoText": "PLASCON",
+    "description": "A recognised South African colour brand offering dependable architectural paints, broad tinting capability, and durable interior and exterior systems.",
+    "website": "https://www.plascon.co.za/",
+    "sourceUrl": "https://www.plascon.co.za/",
+    "lastSyncedAt": "2026-08-28T00:00:00.000Z",
+    "paintTypes": ["Interior", "Exterior"],
+    "categories": ["Luxury wall paints", "Durable exteriors", "Colour systems"],
+    "productLines": ["Velvaglo", "Wall & All", "Cashmere"]
+  },
+  {
+    "slug": "dulux",
+    "name": "Dulux",
+    "logoText": "DULUX",
+    "description": "A global paint benchmark with accessible colour families, finish clarity, and dependable coating systems for specification-led homes.",
+    "website": "https://www.dulux.co.za/",
+    "sourceUrl": "https://www.dulux.co.za/",
+    "lastSyncedAt": "2026-08-28T00:00:00.000Z",
+    "paintTypes": ["Interior", "Exterior", "Specialty"],
+    "categories": ["Colour walls", "Woodcare", "Protective coatings"],
+    "productLines": ["Luxurious Silk", "Weatherguard", "Supergrip"]
+  },
+  {
+    "slug": "dekster",
+    "name": "Dekster",
+    "logoText": "DEKSTER",
+    "description": "A locally relevant coatings supplier with a focus on robust finishes, trade-friendly coverage, and practical product support.",
+    "website": "https://www.dekster.co.za/",
+    "sourceUrl": "https://www.dekster.co.za/",
+    "lastSyncedAt": "2026-08-28T00:00:00.000Z",
+    "paintTypes": ["Interior", "Exterior", "Specialty"],
+    "categories": ["Decorative coatings", "Primers", "Industrial finishes"],
+    "productLines": ["Studio Matt", "Contractor Acrylic", "Metalcare"]
+  },
+  {
+    "slug": "earthcote",
+    "name": "Earthcote",
+    "logoText": "EARTHCOTE",
+    "description": "An eco-conscious finish house known for limewash and earth-inspired coatings that add depth, tactility, and low-sheen elegance.",
+    "website": "https://earthcote.co.za/",
+    "sourceUrl": "https://earthcote.co.za/",
+    "lastSyncedAt": "2026-08-28T00:00:00.000Z",
+    "paintTypes": ["Eco-friendly", "Interior", "Specialty"],
+    "categories": ["Limewash", "Textured finishes", "Natural coatings"],
+    "productLines": ["Mineral Wash", "Velvet Lime", "Texture Coat"]
+  },
+  {
+    "slug": "envirolite",
+    "name": "Envirolite",
+    "logoText": "ENVIROLITE",
+    "description": "A low-VOC supplier option for clients prioritising cleaner indoor air, sustainability, and contemporary painted surfaces.",
+    "website": "https://www.envirolite.co.za/",
+    "sourceUrl": "https://www.envirolite.co.za/",
+    "lastSyncedAt": "2026-08-28T00:00:00.000Z",
+    "paintTypes": ["Eco-friendly", "Interior", "Exterior"],
+    "categories": ["Low-VOC paints", "Green building coatings", "Colour systems"],
+    "productLines": ["Eco Interior", "Eco Exterior", "Pure Ceiling"]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "cliffside-lounge",
+    "title": "Cliffside Lounge Refresh",
+    "roomType": "Living Room",
+    "description": "Warm neutrals and a soft velvet finish were used to calm glare and sharpen the surrounding ocean light.",
+    "coloursUsed": ["Cliff Linen", "Stone Sand", "Driftwood White"],
+    "image": "/portfolio-lounge.svg",
+    "imageAlt": "A layered living room palette with warm neutral walls and curated furnishings"
+  },
+  {
+    "slug": "guest-suite-retreat",
+    "title": "Guest Suite Retreat",
+    "roomType": "Bedroom",
+    "description": "Muted mineral tones and low-sheen surfaces created a restful boutique-hotel atmosphere.",
+    "coloursUsed": ["Cloud Oyster", "Dune Veil", "Pebble Ash"],
+    "image": "/portfolio-bedroom.svg",
+    "imageAlt": "A serene bedroom concept with muted tones and premium finishes"
+  },
+  {
+    "slug": "kitchen-pavilion",
+    "title": "Kitchen Pavilion",
+    "roomType": "Kitchen",
+    "description": "Cabinet-adjacent wall colours were tuned to stone and brass details for a crisp, architectural result.",
+    "coloursUsed": ["Sea Salt", "Fossil Grey", "Brushed Clay"],
+    "image": "/portfolio-kitchen.svg",
+    "imageAlt": "A premium kitchen palette with clean lines, brass accents, and warm stone hues"
+  },
+  {
+    "slug": "courtyard-villa-exterior",
+    "title": "Courtyard Villa Exterior",
+    "roomType": "Exterior",
+    "description": "An exterior coating scheme chosen for weather resilience, soft contrast, and elegant street presence.",
+    "coloursUsed": ["Coastal Shell", "Graphite Mist", "Limestone"],
+    "image": "/portfolio-exterior.svg",
+    "imageAlt": "An exterior villa palette with refined neutral walls and durable finishes"
+  },
+  {
+    "slug": "show-suite-reception",
+    "title": "Show Suite Reception",
+    "roomType": "Commercial",
+    "description": "A high-traffic welcome area specified with easy-maintenance silk finishes and a restrained colour story.",
+    "coloursUsed": ["Moss Silk", "Pale Putty", "Soft Charcoal"],
+    "image": "/portfolio-commercial.svg",
+    "imageAlt": "A commercial reception concept with premium paint finishes and understated styling"
+  }
+]
