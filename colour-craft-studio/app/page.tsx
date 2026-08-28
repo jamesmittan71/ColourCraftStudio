@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { initDb, getAllBrands } from '@/lib/db';
+import { getAllBrands } from '@/lib/db';
 import type { Brand } from '@/lib/brands';
 import CTA from '@/components/CTA';
 
@@ -46,7 +46,6 @@ const TESTIMONIALS = [
 ];
 
 export default async function HomePage() {
-  initDb();
   const brands = getAllBrands() as Brand[];
 
   return (
@@ -61,8 +60,7 @@ export default async function HomePage() {
             Colour Expertise.<br />Premium Finishes.
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            Your trusted partner for specialist paint and colour consultation in Hermanus.
-            Serving discerning homeowners, interior decorators and contractors.
+            Specialist paint supply for Hermanus.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -72,10 +70,10 @@ export default async function HomePage() {
               Book Consultation
             </Link>
             <Link
-              href="/products"
+              href="/brands"
               className="px-8 py-3 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
             >
-              Explore Products
+              Explore Brands
             </Link>
           </div>
         </div>

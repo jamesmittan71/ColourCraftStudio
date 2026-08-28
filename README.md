@@ -3,7 +3,7 @@
 Premium paint supply & colour consultation website — built with Next.js 14, TypeScript and Tailwind CSS.
 
 **Location:** Hermanus / Walkerbay, Western Cape, South Africa  
-**Stack:** Next.js 14 · TypeScript · Tailwind CSS · SQLite (better-sqlite3) · Nodemailer
+**Stack:** Next.js 14 · TypeScript · Tailwind CSS · Nodemailer
 
 ---
 
@@ -33,7 +33,7 @@ SMTP_PASS=your_smtp_password
 NOTIFY_EMAIL=owner@colourcraftstudio.co.za
 ```
 
-> The contact form saves enquiries to SQLite even if SMTP is not configured.
+> The app uses typed in-memory mock catalogue data. Configure SMTP in production so contact enquiries are delivered to the studio.
 
 ### 3. Run development server
 
@@ -79,11 +79,9 @@ colour-craft-studio/
 │   ├── CTA.tsx
 │   └── ContactForm.tsx
 ├── lib/
-│   ├── db.ts         # SQLite connection, schema, seed, queries
+│   ├── db.ts         # Typed in-memory catalogue and enquiry mock API
 │   ├── brands.ts     # Brand type
 │   └── products.ts   # Product type
-├── data/
-│   └── colourcraft.db  # Auto-created on first run
 └── public/
     ├── logos/
     └── images/
@@ -91,16 +89,11 @@ colour-craft-studio/
 
 ---
 
-## Database
+## Data
 
-SQLite database auto-creates at `data/colourcraft.db` on first request.
+The catalogue is supplied by a typed in-memory data layer with all 6 brands (MIDAS, Plascon, Dulux, Dekster, Earthcote and Envirolite) and 12 sample products. The API preserves database-style functions for a future production data-store migration.
 
-**Tables:**
-- `brands` — id, name, logo_url, description, website
-- `products` — id, brand_id, name, type, colour_range, description
-- `consultations` — id, name, email, phone, message, date_booked
-
-Seed data includes all 6 brands (MIDAS, Dekster, Earthcote, Envirolite, Plascon, Dulux) and 12 sample products.
+Contact enquiries are retained only for the active server process. Configure SMTP for durable production delivery.
 
 ---
 
@@ -179,7 +172,7 @@ In cPanel → **Setup Node.js App**:
 - [ ] Contact form validates required fields client-side
 - [ ] Empty submission shows appropriate errors
 - [ ] Valid submission shows success message
-- [ ] Enquiry appears in SQLite `consultations` table
+- [ ] Valid enquiry arrives at `NOTIFY_EMAIL` when SMTP is configured
 
 ### Page Load
 - [ ] Home page loads in <2s on 3G (use Lighthouse)
