@@ -5,10 +5,12 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -18,19 +20,20 @@ jobs:
       - name: Install dependencies
         run: |
           cd colour-craft-studio
-          npm ci
+          npm ci --ignore-scripts
       
-      - name: Build
+      - name: Build Next.js
         run: |
           cd colour-craft-studio
           npm run build
       
-      - name: Deploy to cPanel via FTP
+      - name: Deploy to cPanel FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./colour-craft-studio/.next/
+          local-dir: ./colour-craft-studio/.next/standalone/
           server-dir: /public_html/
           state-name: .ftp-deploy-sync-state.json
+          dangerous-clean-slate: false
