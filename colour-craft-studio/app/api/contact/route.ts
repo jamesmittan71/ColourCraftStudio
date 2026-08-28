@@ -19,8 +19,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Name, email and message are required.' }, { status: 400 });
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    // Simple, ReDoS-safe email check: local-part@domain.tld
+    const localPart = email.split('@');
+    if (localPart.length !== 2 || localPart[0].length === 0) {
+      return NextResponse.json({ error: 'Please provide a valid email address.' }, { status: 400 });
+    }
+    const domainParts = localPart[1].split('.');
+    if (domainParts.length < 2 || domainParts.some((p) => p.length === 0)) {
       return NextResponse.json({ error: 'Please provide a valid email address.' }, { status: 400 });
     }
 
