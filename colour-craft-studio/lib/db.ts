@@ -16,15 +16,15 @@ const mockProducts: Product[] = [
   { id: 1, brand_id: 1, name: 'MIDAS Interior Matt', type: 'interior', colour_range: 'Whites and neutrals', description: 'Washable low-sheen wall paint for everyday living spaces.' },
   { id: 2, brand_id: 1, name: 'MIDAS Exterior Shield', type: 'exterior', colour_range: 'Contemporary exteriors', description: 'Weather-resistant protection for coastal homes.' },
   { id: 3, brand_id: 2, name: 'Plascon Double Velvet', type: 'interior', colour_range: 'Signature colour collection', description: 'Luxurious matt finish with excellent washability.' },
-  { id: 4, brand_id: 2, name: 'Plascon Velvaglo', type: 'specialty', colour_range: 'Classic and bold accents', description: 'Hard-wearing enamel for trim, doors and cabinetry.' },
+  { id: 4, brand_id: 2, name: 'Plascon Velvaglo', type: 'specialist', colour_range: 'Classic and bold accents', description: 'Hard-wearing enamel for trim, doors and cabinetry.' },
   { id: 5, brand_id: 3, name: 'Dulux Weathershield', type: 'exterior', colour_range: 'Exterior colour palette', description: 'Flexible, long-lasting protection against sun and rain.' },
   { id: 6, brand_id: 3, name: 'Dulux Easycare', type: 'interior', colour_range: 'Family-friendly colours', description: 'Stain-resistant paint for busy rooms and hallways.' },
   { id: 7, brand_id: 4, name: 'Dekster Pro Matt', type: 'interior', colour_range: 'Decorator whites', description: 'Professional matt finish with dependable coverage.' },
-  { id: 8, brand_id: 4, name: 'Dekster Roof Coat', type: 'specialty', colour_range: 'Roof and metal shades', description: 'Protective coating for roofs and exterior metalwork.' },
-  { id: 9, brand_id: 5, name: 'Earthcote Natural', type: 'interior', colour_range: 'Earth-inspired tones', description: 'Breathable low-VOC finish for healthier interiors.' },
-  { id: 10, brand_id: 5, name: 'Earthcote Limewash', type: 'specialty', colour_range: 'Soft mineral washes', description: 'Textured mineral finish with a hand-crafted character.' },
-  { id: 11, brand_id: 6, name: 'Envirolite Cool Roof', type: 'exterior', colour_range: 'Reflective roof colours', description: 'Energy-conscious roof coating designed to reduce heat gain.' },
-  { id: 12, brand_id: 6, name: 'Envirolite Eco Interior', type: 'interior', colour_range: 'Low-VOC colour range', description: 'Low-odour finish for comfortable indoor spaces.' },
+  { id: 8, brand_id: 4, name: 'Dekster Roof Coat', type: 'specialist', colour_range: 'Roof and metal shades', description: 'Protective coating for roofs and exterior metalwork.' },
+  { id: 9, brand_id: 5, name: 'Earthcote Natural', type: 'eco', colour_range: 'Earth-inspired tones', description: 'Breathable low-VOC finish for healthier interiors.' },
+  { id: 10, brand_id: 5, name: 'Earthcote Limewash', type: 'eco', colour_range: 'Soft mineral washes', description: 'Textured mineral finish with a hand-crafted character.' },
+  { id: 11, brand_id: 6, name: 'Envirolite Cool Roof', type: 'eco', colour_range: 'Reflective roof colours', description: 'Energy-conscious roof coating designed to reduce heat gain.' },
+  { id: 12, brand_id: 6, name: 'Envirolite Eco Interior', type: 'eco', colour_range: 'Low-VOC colour range', description: 'Low-odour finish for comfortable indoor spaces.' },
 ];
 
 interface Consultation {

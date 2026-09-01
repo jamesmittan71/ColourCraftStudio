@@ -9,7 +9,15 @@ export default function ProductCard({ product }: ProductCardProps) {
   const typeColour: Record<string, string> = {
     interior: 'bg-blue-50 text-blue-700',
     exterior: 'bg-green-50 text-green-700',
-    specialty: 'bg-purple-50 text-purple-700',
+    eco: 'bg-emerald-50 text-emerald-700',
+    specialist: 'bg-purple-50 text-purple-700',
+  };
+
+  const typeLabel: Record<string, string> = {
+    interior: 'Interior',
+    exterior: 'Exterior',
+    eco: 'Eco-Friendly',
+    specialist: 'Specialist',
   };
 
   return (
@@ -26,7 +34,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             typeColour[product.type] ?? 'bg-gray-100 text-gray-600'
           }`}
         >
-          {product.type}
+          {typeLabel[product.type] ?? product.type}
         </span>
       </div>
 

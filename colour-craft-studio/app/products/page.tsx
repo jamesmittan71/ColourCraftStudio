@@ -74,18 +74,23 @@ export default async function ProductsPage({
           <div className="h-4 w-px bg-gray-200" />
 
           {/* Type filter */}
-          <div className="flex gap-2">
-            {['interior', 'exterior', 'specialty'].map((t) => (
+          <div className="flex flex-wrap gap-2">
+            {([
+              { value: 'interior', label: 'Interior' },
+              { value: 'exterior', label: 'Exterior' },
+              { value: 'eco', label: 'Eco-Friendly' },
+              { value: 'specialist', label: 'Specialist Finishes' },
+            ] as const).map(({ value, label }) => (
               <a
-                key={t}
-                href={`/products?${brandId ? `brand=${brandId}&` : ''}type=${t}`}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium capitalize transition-colors ${
-                  type === t
+                key={value}
+                href={`/products?${brandId ? `brand=${brandId}&` : ''}type=${value}`}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                  type === value
                     ? 'bg-blue-600 text-white'
                     : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'
                 }`}
               >
-                {t}
+                {label}
               </a>
             ))}
           </div>
